@@ -1,4 +1,5 @@
 ﻿
+using System;
 using System.Globalization;
 
 
@@ -32,6 +33,18 @@ namespace RodsExtensions
         public static bool IsNullOrEmpty(this string currentString)
         {
             return string.IsNullOrEmpty(currentString);
+        }
+
+        /// <summary>
+        /// Compares two strings ignoring their case
+        /// </summary>
+        /// <param name="currentString">current string </param>
+        /// <param name="comparisonString">string to compare to</param>
+        /// <returns>true iff they are the same</returns>
+        public static bool IgnoringCaseEquals(this string currentString, string comparisonString)
+        {
+            return string.Equals(currentString, comparisonString,
+                                 StringComparison.CurrentCultureIgnoreCase);
         }
     }
 }
